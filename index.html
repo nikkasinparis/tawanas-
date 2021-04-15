@@ -2,6 +2,15 @@
 <html>
 <head>
 <style>
+footer {
+padding: 30px;
+background-color: grey;
+}
+#my-order {
+background-color: #29C1C4;
+padding: 25px;
+display: none;
+}
     td {
 padding: 10px;
 }
@@ -102,12 +111,35 @@ What’s the silliest idea you have ever had?
 </tr>
 <tr>
 <td> Favourite drink: </td>
-<td> </td>
+<td> <select name="my-drink">
+<option> Milk </option>
+<option> Coffee </option>
+<option> Tea </option>
+</select>
+</td>
 </tr>
 
 <tr>
 <td> Quantity: </td>
-<td> </td>
+<td><input type="number" name="my-qty"
+value="1" min="1" max="5">
+<small>(max 5)</small>
+</td>
+</tr>
+
+<tr>
+<br>
+<div id="my-order">
+</div>
+</tr>
+<tr>
+<td colspan="2" >
+<input class="button"
+type="button"
+value="Process Order"
+onclick="placeOrder();">
+<input class="button" type="reset" value="Clear" >
+</td>
 </tr>
      
     </table>
@@ -143,7 +175,36 @@ What’s the silliest idea you have ever had?
 
 
         
-            
-    </section>
+       <div> 
+       <h3>thanks for visiting</h3>
+       <div> 
+       . container
+       <article>>.card
+       <h3>Get in Touch.</h3>
+       <p>: foofdman.</h3><article>
+       <article>.card
+       <h3>Contact Us:</h3>
+       <p>We would love to hear from you.
+<br> Call or email us. <br>
+Mobile: 072345 633 //
+Tel: 012 343 3432</p><article>
+      &copy; 2021 world style association
+, 
+    <script>
+function placeOrder () {
+var orderForm = document.getElementById("my-form");
+results = "<h3>Success!</h3> Here is your order.";
+results += "<br>Name: "+ orderForm.elements["my-name"].value;
+results += "<br>Address: " + orderForm.elements["my-address"].value;
+results += "<br>I like to order: " + orderForm.elements["my-
+drink"].value;
+results += "<br>Quantity: " + orderForm.elements["my-qty"].value;
+var orderResults = document.getElementById("my-order");
+orderResults.style.display = "block";
+orderResults.innerHTML = results;
+}
+</script>
 </body>
 </html>
+
+
